@@ -1,0 +1,652 @@
+<!doctype html>
+<!--
+  ============================================================================
+  AC ODONTOLOGÍA — Sitio demo no oficial · Pieza #2 de portafolio
+  ============================================================================
+  Por qué esta demo vende:
+   (a) Convierte su tratamiento estrella — implantes de carga inmediata,
+       "dientes fijos en 1 día" — en una EXPERIENCIA scroll-driven en 3D.
+       El paciente no lee el procedimiento: lo vive hora por hora.
+   (b) Se INTEGRA con el Dentalink que la clínica ya usa (no lo reemplaza):
+       todos los CTA de conversión apuntan a su agenda real.
+   (c) Mide el salto: de una web 2015 con "Lorem ipsum", error PHP impreso
+       y footer © 2021 → a una pieza con Lighthouse 90+, AA y modo oscuro
+       quirúrgico.
+  Todo dato factual proviene de la web pública de la clínica y se atribuye
+  como "declarado por la clínica". Fotos/testimonios son placeholder.
+  ============================================================================
+-->
+<html lang="es-CL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>AC Odontología | Implantes dentales en 1 día — Vitacura</title>
+    <meta
+      name="description"
+      content="Implantes y dientes fijos en un solo día. Pioneros en implantología de carga inmediata en Chile. Pabellón certificado SEREMI, sedación sin dolor y tecnología CEREC en Vitacura, Santiago."
+    />
+    <meta name="theme-color" content="#0B1B2B" />
+    <link rel="canonical" href="https://acodontologia.cl/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:site_name" content="AC Odontología" />
+    <meta property="og:title" content="AC Odontología | Implantes dentales en 1 día — Vitacura" />
+    <meta
+      property="og:description"
+      content="Implantes y dientes fijos en un solo día. Pioneros en carga inmediata en Chile. Pabellón SEREMI, sedación sin dolor y CEREC en Vitacura."
+    />
+    <meta property="og:image" content="/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AC Odontología | Implantes dentales en 1 día" />
+    <meta
+      name="twitter:description"
+      content="Pioneros en implantología de carga inmediata en Chile. Dientes fijos en 1 día, sin dolor."
+    />
+    <meta name="twitter:image" content="/og-image.svg" />
+
+    <!-- Fuentes: Space Grotesk (display técnica) + Inter (texto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- schema.org Dentist — datos reales declarados por la clínica -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Dentist",
+        "name": "AC Odontología",
+        "description": "Clínica dental especializada en implantología de carga inmediata: implantes y dientes fijos en un solo día. Parte del Grupo AltoCordillera.",
+        "url": "https://acodontologia.cl/",
+        "telephone": "+56229691483",
+        "email": "info@acodontologia.cl",
+        "founder": { "@type": "Person", "name": "Dr. Carlos Corvalán Fuentealba" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Avenida Kennedy 7100, Of. 606",
+          "addressLocality": "Vitacura",
+          "addressRegion": "Región Metropolitana",
+          "addressCountry": "CL"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        },
+        "medicalSpecialty": "Dentistry",
+        "availableService": [
+          { "@type": "MedicalProcedure", "name": "Implantología Inmediata (carga inmediata)" },
+          { "@type": "MedicalProcedure", "name": "Implantología Oral" },
+          { "@type": "MedicalProcedure", "name": "Rehabilitación CEREC" },
+          { "@type": "MedicalProcedure", "name": "Endodoncia con microscopía" },
+          { "@type": "MedicalProcedure", "name": "Cirugía Bucal" },
+          { "@type": "MedicalProcedure", "name": "Ortodoncia e Invisalign" },
+          { "@type": "MedicalProcedure", "name": "Sedación consciente e intravenosa" }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "reviewCount": "304"
+        }
+      }
+    </script>
+  </head>
+
+  <body class="bg-night text-surgical font-sans antialiased">
+    <a href="#main" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- ====================== NAV FIJA ====================== -->
+    <header id="site-nav" class="nav">
+      <div class="nav__inner">
+        <a href="#hero" class="nav__brand" aria-label="AC Odontología — inicio">
+          <span class="nav__logo-mark" aria-hidden="true">AC</span>
+          <span class="nav__logo-text">
+            <span class="nav__logo-name">AC Odontología</span>
+            <span class="nav__logo-sub">Grupo AltoCordillera</span>
+          </span>
+        </a>
+
+        <nav class="nav__links" aria-label="Navegación principal">
+          <a href="#scrolly">Un día, una sonrisa</a>
+          <a href="#sin-dolor">Sin dolor</a>
+          <a href="#tecnologia">Tecnología</a>
+          <a href="#especialidades">Especialidades</a>
+          <a href="#equipo">Equipo</a>
+          <a href="#ubicacion">Ubicación</a>
+        </nav>
+
+        <a
+          class="btn btn--primary nav__cta"
+          href="https://0bca04fa4cd41c2955e675dcac39c21b0aebaec5.agenda.softwaredentalink.com/agendas/agendamiento"
+          target="_blank"
+          rel="noopener"
+          data-cta="agenda"
+        >
+          Reservar evaluación
+        </a>
+
+        <button id="nav-toggle" class="nav__toggle" aria-expanded="false" aria-controls="nav-mobile" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <div id="nav-mobile" class="nav__mobile" hidden>
+        <a href="#scrolly">Un día, una sonrisa</a>
+        <a href="#sin-dolor">Sin dolor</a>
+        <a href="#tecnologia">Tecnología</a>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#confianza">Confianza</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a
+          class="btn btn--primary"
+          href="https://0bca04fa4cd41c2955e675dcac39c21b0aebaec5.agenda.softwaredentalink.com/agendas/agendamiento"
+          target="_blank"
+          rel="noopener"
+          data-cta="agenda"
+        >Reservar evaluación gratuita</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ====================== HERO ====================== -->
+      <section id="hero" class="hero">
+        <!-- Lienzo 3D: la mandíbula vive aquí (lazy-load de Three.js).
+             Mientras carga, se ve el poster estático de abajo. -->
+        <div id="hero-canvas" class="hero__canvas" aria-hidden="true"></div>
+        <div id="hero-poster" class="hero__poster" aria-hidden="true"></div>
+        <div class="hero__grid" aria-hidden="true"></div>
+
+        <div class="hero__content">
+          <p class="eyebrow">
+            <span class="eyebrow__dot"></span> Pioneros en carga inmediata en Chile
+          </p>
+          <h1 class="hero__title">
+            Implantes y dientes fijos<br /><span class="text-grad">en un solo día.</span>
+          </h1>
+          <p class="hero__subtitle">
+            Llegas sin dientes fijos. Te vas con ellos. Implantología de carga
+            inmediata en Vitacura, con pabellón certificado y sedación sin dolor.
+          </p>
+          <div class="hero__actions">
+            <a
+              class="btn btn--primary btn--lg"
+              href="https://0bca04fa4cd41c2955e675dcac39c21b0aebaec5.agenda.softwaredentalink.com/agendas/agendamiento"
+              target="_blank"
+              rel="noopener"
+              data-cta="agenda"
+            >
+              Reserva tu evaluación gratuita
+            </a>
+            <a
+              class="btn btn--ghost btn--lg"
+              href="https://wa.me/56229691483?text=Hola%2C%20quiero%20agendar%20una%20evaluaci%C3%B3n%20de%20implantes"
+              target="_blank"
+              rel="noopener"
+              data-cta="whatsapp"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M.06 24l1.68-6.13A11.86 11.86 0 0 1 .16 11.9C.16 5.34 5.5 0 12.06 0a11.82 11.82 0 0 1 8.41 3.49 11.82 11.82 0 0 1 3.48 8.42c0 6.56-5.34 11.9-11.9 11.9a11.9 11.9 0 0 1-5.68-1.45L.06 24zM6.6 20.13l.36.21a9.86 9.86 0 0 0 5.03 1.38 9.9 9.9 0 0 0 9.88-9.89 9.9 9.9 0 0 0-9.87-9.9 9.9 9.9 0 0 0-9.89 9.9 9.84 9.84 0 0 0 1.51 5.26l.24.38-1 3.65 3.73-.99zM17.9 14.3c-.07-.12-.26-.2-.55-.34s-1.7-.84-1.96-.94-.46-.14-.65.15-.74.94-.91 1.13-.33.22-.62.07a8.02 8.02 0 0 1-2.35-1.45 8.84 8.84 0 0 1-1.63-2.03c-.17-.29 0-.45.13-.59.13-.13.29-.34.43-.51a2 2 0 0 0 .29-.48.53.53 0 0 0-.02-.51c-.08-.14-.65-1.56-.89-2.14-.23-.56-.47-.48-.65-.49l-.55-.01a1.06 1.06 0 0 0-.77.36 3.23 3.23 0 0 0-1 2.4 5.6 5.6 0 0 0 1.17 2.98c.14.19 2.03 3.1 4.92 4.34a16.6 16.6 0 0 0 1.64.61 3.94 3.94 0 0 0 1.81.11c.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+          <p class="hero__hint" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="icon"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m0 0l5-5m-5 5l-5-5"/></svg>
+            Haz scroll para vivir el tratamiento en 24 horas
+          </p>
+        </div>
+      </section>
+
+      <!-- ====================== BARRA DE CIFRAS ====================== -->
+      <section id="cifras" class="stats" aria-label="Cifras de la clínica">
+        <div class="stats__inner">
+          <div class="stat" data-count="5000" data-prefix="+">
+            <span class="stat__num tabular-nums">0</span>
+            <span class="stat__label">pacientes de implantes</span>
+          </div>
+          <div class="stat" data-count="99.5" data-prefix="&gt;" data-suffix="%" data-decimals="1">
+            <span class="stat__num tabular-nums">0</span>
+            <span class="stat__label">tasa de éxito</span>
+          </div>
+          <div class="stat" data-count="90" data-suffix="%">
+            <span class="stat__num tabular-nums">0</span>
+            <span class="stat__label">especialistas con postgrado</span>
+          </div>
+          <div class="stat" data-count="304" data-suffix="★">
+            <span class="stat__num tabular-nums">0</span>
+            <span class="stat__label">reseñas Google 5 estrellas</span>
+          </div>
+        </div>
+        <p class="stats__disclaimer">Cifras declaradas por la clínica en su sitio oficial.</p>
+      </section>
+
+      <!-- ====================== SCROLLYTELLING 3D ====================== -->
+      <section id="scrolly" class="scrolly" aria-label="El tratamiento en un día">
+        <div class="scrolly__sticky">
+          <!-- Escena 3D (desktop / con WebGL) -->
+          <div id="scrolly-canvas" class="scrolly__canvas"></div>
+
+          <!-- Fallback SVG (mobile gama baja / sin WebGL / reduced-motion).
+               Mismo storytelling, sin WebGL. Se activa desde JS. -->
+          <div id="scrolly-fallback" class="scrolly__fallback" hidden></div>
+
+          <!-- HUD: hora del día + etiqueta de etapa -->
+          <div class="scrolly__hud" aria-hidden="true">
+            <span class="hud__time" id="hud-time">09:00</span>
+            <span class="hud__divider"></span>
+            <span class="hud__stage" id="hud-stage">Diagnóstico</span>
+          </div>
+
+          <!-- Barra de progreso de las 4 etapas -->
+          <ol class="scrolly__progress" aria-hidden="true">
+            <li data-step="0" class="is-active"><span></span>09:00</li>
+            <li data-step="1"><span></span>11:00</li>
+            <li data-step="2"><span></span>17:00</li>
+            <li data-step="3"><span></span>+1 sem</li>
+          </ol>
+        </div>
+
+        <!-- Pasos de texto que sincronizan con la animación 3D -->
+        <div class="scrolly__steps">
+          <div class="scrolly__intro">
+            <h2 class="section-title">Un día. Una sonrisa.</h2>
+            <p class="section-lead">
+              El recorrido de un implante de carga inmediata, hora por hora.
+              Llegas en la mañana; te vas con dientes fijos.
+            </p>
+          </div>
+
+          <article class="step" data-step="0">
+            <div class="step__card">
+              <span class="step__time">09:00</span>
+              <h3 class="step__title">Diagnóstico</h3>
+              <p>
+                Un escáner 3D barre tu mandíbula. Con radiología propia (TAC),
+                planificamos el implante al milímetro antes de tocarte.
+              </p>
+            </div>
+          </article>
+
+          <article class="step" data-step="1">
+            <div class="step__card">
+              <span class="step__time">11:00</span>
+              <h3 class="step__title">Cirugía</h3>
+              <p>
+                El implante de titanio se inserta con precisión guiada, en
+                pabellón certificado SEREMI. Anestesia local, indoloro y con
+                sedación consciente disponible.
+              </p>
+            </div>
+          </article>
+
+          <article class="step" data-step="2">
+            <div class="step__card">
+              <span class="step__time">17:00</span>
+              <h3 class="step__title">Dientes fijos</h3>
+              <p>
+                La prótesis se ensambla sobre el implante el mismo día. Sales de
+                la clínica masticando y sonriendo: carga inmediata real.
+              </p>
+            </div>
+          </article>
+
+          <article class="step" data-step="3">
+            <div class="step__card">
+              <span class="step__time">Una semana después</span>
+              <h3 class="step__title">Control</h3>
+              <p>
+                Revisión de seguimiento y retiro de puntos. Tu implante queda con
+                garantía ilimitada según pauta de mantenimiento.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Cierre: contador + CTA -->
+        <div class="scrolly__close">
+          <div class="close-stats">
+            <div class="close-stat" data-count="5000" data-prefix="+"><span class="tabular-nums">0</span><small>pacientes</small></div>
+            <div class="close-stat" data-count="99.5" data-suffix="%" data-decimals="1"><span class="tabular-nums">0</span><small>de éxito</small></div>
+            <div class="close-stat"><span>∞</span><small>garantía en implantes</small></div>
+          </div>
+          <a
+            class="btn btn--primary btn--lg"
+            href="https://0bca04fa4cd41c2955e675dcac39c21b0aebaec5.agenda.softwaredentalink.com/agendas/agendamiento"
+            target="_blank"
+            rel="noopener"
+            data-cta="agenda"
+          >Empieza tu día. Reserva tu evaluación</a>
+          <p class="close-note">Cifras declaradas por la clínica · Garantía sujeta a pauta de mantenimiento.</p>
+        </div>
+      </section>
+
+      <!-- ====================== SIN DOLOR ====================== -->
+      <section id="sin-dolor" class="section section--dark">
+        <div class="container">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> Odontología SIN DOLOR</p>
+          <h2 class="section-title">Sin dolor, en serio.</h2>
+          <p class="section-lead">
+            No es un eslogan: es infraestructura. Pabellón propio certificado,
+            sedación de verdad y salas de recuperación para que el miedo deje de
+            ser una razón para no tratarte.
+          </p>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="feature-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 2l7 3v6c0 4.5-3 8.5-7 9-4-.5-7-4.5-7-9V5l7-3z"/><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
+              </div>
+              <h3>Pabellón certificado SEREMI</h3>
+              <p>Cirugía en un quirófano propio con autorización sanitaria, no en un sillón improvisado.</p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M4 14h3l2 4 4-12 2 6h5"/></svg>
+              </div>
+              <h3>Sedación consciente e IV</h3>
+              <p>Anestesia local, sedación consciente o intravenosa según el caso. Tú decides cuánto quieres enterarte.</p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M3 12h4l2-3 3 6 2-4 2 2h5"/><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              </div>
+              <h3>Salas de recuperación</h3>
+              <p>Post-quirúrgico monitoreado: te recuperas acompañado antes de volver a casa, no en la sala de espera.</p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" d="M12 7v5l3 2"/></svg>
+              </div>
+              <h3>PRP — plasma rico en plaquetas</h3>
+              <p>Aceleramos la cicatrización con tu propio plasma. Menos molestias, mejor recuperación.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================== TECNOLOGÍA ====================== -->
+      <section id="tecnologia" class="section">
+        <div class="container">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> Tecnología</p>
+          <h2 class="section-title">La precisión no se improvisa.</h2>
+          <p class="section-lead">
+            Pasa el cursor para encender cada tecnología. Todo bajo el mismo
+            techo: del diagnóstico a la corona, sin derivar.
+          </p>
+
+          <div class="tech-grid">
+            <article class="tech-card" tabindex="0">
+              <span class="tech-card__tag">1 sesión</span>
+              <h3>CEREC</h3>
+              <p>Diseñamos y fresamos tu corona en cerámica el mismo día. Sin impresiones incómodas ni segunda visita.</p>
+            </article>
+            <article class="tech-card" tabindex="0">
+              <span class="tech-card__tag">3D</span>
+              <h3>Radiología 3D propia (TAC)</h3>
+              <p>Tomografía en la misma clínica para planificar implantes con exactitud milimétrica.</p>
+            </article>
+            <article class="tech-card" tabindex="0">
+              <span class="tech-card__tag">Micrón</span>
+              <h3>Microscopía endodóntica</h3>
+              <p>Tratamientos de conducto vistos con microscopio: más conservadores, más predecibles.</p>
+            </article>
+            <article class="tech-card" tabindex="0">
+              <span class="tech-card__tag">Invisible</span>
+              <h3>Invisalign</h3>
+              <p>Ortodoncia con alineadores transparentes, planificada digitalmente de principio a fin.</p>
+            </article>
+            <article class="tech-card" tabindex="0">
+              <span class="tech-card__tag">Zoom</span>
+              <h3>Blanqueamiento Philips Zoom</h3>
+              <p>Blanqueamiento profesional en consulta, con resultados visibles en una sesión.</p>
+            </article>
+            <article class="tech-card" tabindex="0">
+              <span class="tech-card__tag">Estética</span>
+              <h3>Estética facial</h3>
+              <p>Armonía entre tu sonrisa y tu rostro, con un enfoque clínico y mesurado.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================== ESPECIALIDADES ====================== -->
+      <section id="especialidades" class="section section--dark">
+        <div class="container">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> 15 especialidades</p>
+          <h2 class="section-title">Todo en un solo lugar.</h2>
+          <p class="section-lead">
+            Un equipo de ~21 especialistas cubre el tratamiento completo, desde
+            la cirugía más compleja hasta el control de tus hijos.
+          </p>
+
+          <div class="spec-groups">
+            <div class="spec-group">
+              <h3 class="spec-group__title">Cirugía e implantes</h3>
+              <ul class="spec-list">
+                <li>Implantología Inmediata</li>
+                <li>Implantología Oral</li>
+                <li>Cirugía Bucal</li>
+                <li>Rehabilitación CEREC</li>
+                <li>Sedación</li>
+              </ul>
+            </div>
+            <div class="spec-group">
+              <h3 class="spec-group__title">Estética</h3>
+              <ul class="spec-list">
+                <li>Estética Facial</li>
+                <li>Blanqueamiento</li>
+                <li>Periodoncia</li>
+              </ul>
+            </div>
+            <div class="spec-group">
+              <h3 class="spec-group__title">Ortodoncia</h3>
+              <ul class="spec-list">
+                <li>Ortodoncia</li>
+                <li>Invisalign</li>
+                <li>TTM y Dolor Orofacial</li>
+              </ul>
+            </div>
+            <div class="spec-group">
+              <h3 class="spec-group__title">Diagnóstico y familia</h3>
+              <ul class="spec-list">
+                <li>Endodoncia</li>
+                <li>Odontopediatría</li>
+                <li>Radiología</li>
+                <li>Radiología 3D</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================== EQUIPO ====================== -->
+      <section id="equipo" class="section">
+        <div class="container">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> Equipo</p>
+          <h2 class="section-title">El equipo que te atiende.</h2>
+
+          <article class="founder">
+            <div class="founder__photo" aria-hidden="true">
+              <span class="placeholder-tag">[Foto real del equipo]</span>
+            </div>
+            <div class="founder__body">
+              <h3>Dr. Carlos Corvalán Fuentealba</h3>
+              <p class="founder__role">Fundador · AC Odontología — Grupo AltoCordillera</p>
+              <p>
+                Lidera un equipo de ~21 dentistas, en su mayoría formados en la
+                Universidad Mayor, U. de Chile y Finis Terrae. Más del 90% del
+                staff tiene postgrado, y más de 50 odontólogos externos derivan
+                a sus pacientes a la clínica.
+              </p>
+            </div>
+          </article>
+
+          <div class="team-grid" id="team-grid" aria-label="Integrantes del equipo">
+            <!-- Tarjetas generadas en JS a partir de nombres públicos -->
+          </div>
+          <p class="placeholder-note">
+            Fotos del equipo en placeholder · se reemplazan con las imágenes
+            reales de la clínica. No se atribuyen especialidades no confirmadas.
+          </p>
+        </div>
+      </section>
+
+      <!-- ====================== CONFIANZA ====================== -->
+      <section id="confianza" class="section section--accent">
+        <div class="container">
+          <div class="trust-grid">
+            <div class="trust-hero">
+              <h2 class="section-title">Más de 50 odontólogos<br />nos derivan sus pacientes.</h2>
+              <p class="section-lead">
+                Cuando otros profesionales confían sus casos complejos en ti, es
+                porque el resultado habla. Esa es nuestra mejor reseña.
+              </p>
+            </div>
+            <ul class="trust-points">
+              <li><span class="trust-check" aria-hidden="true">✓</span><div><strong>Garantía ilimitada en implantes</strong><small>Sujeta a pauta de mantenimiento.</small></div></li>
+              <li><span class="trust-check" aria-hidden="true">✓</span><div><strong>Evaluación inicial gratuita</strong><small>Diagnóstico y plan de tratamiento sin costo.</small></div></li>
+              <li><span class="trust-check" aria-hidden="true">✓</span><div><strong>Hasta 3 cuotas sin interés</strong><small>Para que el tratamiento sea accesible.</small></div></li>
+              <li><span class="trust-check" aria-hidden="true">✓</span><div><strong>+7.000 tratamientos exitosos</strong><small>Declarado por la clínica.</small></div></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================== TESTIMONIOS ====================== -->
+      <section id="testimonios" class="section">
+        <div class="container">
+          <p class="eyebrow"><span class="eyebrow__dot"></span> Testimonios</p>
+          <h2 class="section-title">Lo que dicen los pacientes.</h2>
+          <div class="testi-grid">
+            <figure class="testi-card">
+              <div class="testi-card__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <blockquote>[Se reemplazará con una reseña real de Google.]</blockquote>
+              <figcaption>[Nombre del paciente]</figcaption>
+            </figure>
+            <figure class="testi-card">
+              <div class="testi-card__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <blockquote>[Se reemplazará con una reseña real de Google.]</blockquote>
+              <figcaption>[Nombre del paciente]</figcaption>
+            </figure>
+            <figure class="testi-card">
+              <div class="testi-card__stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <blockquote>[Se reemplazará con una reseña real de Google.]</blockquote>
+              <figcaption>[Nombre del paciente]</figcaption>
+            </figure>
+          </div>
+          <p class="placeholder-note">
+            Placeholder · La clínica declara 304 reseñas con calificación 5★ en Google.
+          </p>
+        </div>
+      </section>
+
+      <!-- ====================== UBICACIÓN ====================== -->
+      <section id="ubicacion" class="section section--dark">
+        <div class="container">
+          <div class="location-grid">
+            <div class="location-info">
+              <p class="eyebrow"><span class="eyebrow__dot"></span> Ubicación</p>
+              <h2 class="section-title">Av. Kennedy 7100, Vitacura.</h2>
+              <dl class="location-dl">
+                <div><dt>Dirección</dt><dd>Avenida Kennedy 7100, Of. 606, Vitacura, Santiago</dd></div>
+                <div><dt>Horario</dt><dd>Lunes a viernes, 9:00–19:00</dd></div>
+                <div><dt>Teléfono</dt><dd><a href="tel:+56229691483">+56 2 2969 1483</a></dd></div>
+                <div><dt>Email</dt><dd><a href="mailto:info@acodontologia.cl">info@acodontologia.cl</a></dd></div>
+                <div><dt>Instagram</dt><dd><a href="https://instagram.com/ac_odontologia_" target="_blank" rel="noopener">@ac_odontologia_</a></dd></div>
+              </dl>
+            </div>
+            <div class="location-map">
+              <iframe
+                title="Mapa de AC Odontología en Av. Kennedy 7100, Vitacura"
+                src="https://www.google.com/maps?q=Avenida+Kennedy+7100+Vitacura+Santiago&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================== CONTACTO / AGENDA ====================== -->
+      <section id="contacto" class="section section--accent">
+        <div class="container">
+          <div class="contact-grid">
+            <div class="contact-cta">
+              <h2 class="section-title">Reserva en su agenda real.</h2>
+              <p class="section-lead">
+                El botón principal abre Dentalink, el sistema de agenda que la
+                clínica ya usa. Esta demo lo integra, no lo reemplaza.
+              </p>
+              <a
+                class="btn btn--primary btn--lg"
+                href="https://0bca04fa4cd41c2955e675dcac39c21b0aebaec5.agenda.softwaredentalink.com/agendas/agendamiento"
+                target="_blank"
+                rel="noopener"
+                data-cta="agenda"
+              >Agendar en Dentalink</a>
+            </div>
+
+            <form class="contact-form" id="contact-form" novalidate>
+              <p class="contact-form__label">¿Prefieres que te contactemos?</p>
+              <div class="field">
+                <label for="cf-name">Nombre</label>
+                <input id="cf-name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="cf-phone">Teléfono</label>
+                <input id="cf-phone" name="phone" type="tel" autocomplete="tel" required />
+              </div>
+              <div class="field">
+                <label for="cf-msg">Mensaje</label>
+                <textarea id="cf-msg" name="message" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--block">Enviar (demo)</button>
+              <p class="contact-form__status" id="cf-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ====================== FOOTER ====================== -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>
+          <span class="nav__logo-mark" aria-hidden="true">AC</span>
+          <p class="footer__name">AC Odontología — Grupo AltoCordillera</p>
+          <p class="footer__addr">Av. Kennedy 7100, Of. 606, Vitacura, Santiago · Lun–Vie 9:00–19:00</p>
+          <p class="footer__addr">+56 2 2969 1483 · info@acodontologia.cl · @ac_odontologia_</p>
+        </div>
+        <p class="footer__demo">
+          Sitio demo no oficial, creado como muestra de portafolio. No
+          representa una comunicación oficial de la clínica. Las cifras se citan
+          tal como las declara la clínica en su sitio; fotos y testimonios son
+          placeholder.
+        </p>
+      </div>
+    </footer>
+
+    <!-- WhatsApp flotante (ícono propio en SVG, no pirateado) -->
+    <a
+      class="wa-float"
+      href="https://wa.me/56229691483?text=Hola%2C%20quiero%20agendar%20una%20evaluaci%C3%B3n%20de%20implantes"
+      target="_blank"
+      rel="noopener"
+      aria-label="Escríbenos por WhatsApp"
+      data-cta="whatsapp"
+    >
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M.06 24l1.68-6.13A11.86 11.86 0 0 1 .16 11.9C.16 5.34 5.5 0 12.06 0a11.82 11.82 0 0 1 8.41 3.49 11.82 11.82 0 0 1 3.48 8.42c0 6.56-5.34 11.9-11.9 11.9a11.9 11.9 0 0 1-5.68-1.45L.06 24zM6.6 20.13l.36.21a9.86 9.86 0 0 0 5.03 1.38 9.9 9.9 0 0 0 9.88-9.89 9.9 9.9 0 0 0-9.87-9.9 9.9 9.9 0 0 0-9.89 9.9 9.84 9.84 0 0 0 1.51 5.26l.24.38-1 3.65 3.73-.99zM17.9 14.3c-.07-.12-.26-.2-.55-.34s-1.7-.84-1.96-.94-.46-.14-.65.15-.74.94-.91 1.13-.33.22-.62.07a8.02 8.02 0 0 1-2.35-1.45 8.84 8.84 0 0 1-1.63-2.03c-.17-.29 0-.45.13-.59.13-.13.29-.34.43-.51a2 2 0 0 0 .29-.48.53.53 0 0 0-.02-.51c-.08-.14-.65-1.56-.89-2.14-.23-.56-.47-.48-.65-.49l-.55-.01a1.06 1.06 0 0 0-.77.36 3.23 3.23 0 0 0-1 2.4 5.6 5.6 0 0 0 1.17 2.98c.14.19 2.03 3.1 4.92 4.34a16.6 16.6 0 0 0 1.64.61 3.94 3.94 0 0 0 1.81.11c.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36z"/></svg>
+    </a>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

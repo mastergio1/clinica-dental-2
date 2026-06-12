@@ -1,0 +1,693 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================================================================
+   AC Odontología — estilos base. Modo oscuro quirúrgico.
+   =========================================================================== */
+
+@layer base {
+  :root {
+    --nav-h: 72px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  /* Lenis controla el scroll; desactivamos el smooth nativo cuando está activo */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  body {
+    background-color: theme('colors.night.DEFAULT');
+    color: theme('colors.surgical');
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 {
+    font-family: theme('fontFamily.display');
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  ::selection {
+    background: theme('colors.brand.cyan');
+    color: theme('colors.night.900');
+  }
+
+  /* Foco visible accesible en todo elemento interactivo */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid theme('colors.brand.cyan');
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Respeto total a prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply absolute left-3 -top-20 z-[100] rounded-md bg-brand-cyan px-4 py-2 text-night-900 font-semibold;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus {
+    top: 0.75rem;
+  }
+
+  .container {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  /* ----- Botones ----- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200;
+    @apply px-5 py-2.5 text-sm;
+  }
+  .btn--lg {
+    @apply px-7 py-3.5 text-base;
+  }
+  .btn--block {
+    @apply w-full;
+  }
+  .btn--primary {
+    background: linear-gradient(135deg, theme('colors.brand.cyan'), theme('colors.brand.DEFAULT'));
+    color: #fff;
+    box-shadow: 0 8px 24px -8px rgba(78, 161, 211, 0.6);
+  }
+  .btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -8px rgba(78, 161, 211, 0.75);
+  }
+  .btn--ghost {
+    @apply border border-white/20 text-surgical;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+  }
+  .btn--ghost:hover {
+    @apply border-brand-cyan/60;
+    background: rgba(78, 161, 211, 0.1);
+  }
+  .icon {
+    @apply h-5 w-5 shrink-0;
+  }
+
+  /* ----- Tipografía de sección ----- */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-brand-cyan;
+  }
+  .eyebrow__dot {
+    @apply inline-block h-1.5 w-1.5 rounded-full bg-brand-cyan;
+    box-shadow: 0 0 10px theme('colors.brand.cyan');
+  }
+  .section-title {
+    @apply mt-4 text-3xl font-bold sm:text-4xl lg:text-5xl;
+  }
+  .section-lead {
+    @apply mt-4 max-w-2xl text-base leading-relaxed text-surgical/70 sm:text-lg;
+  }
+  .text-grad {
+    background: linear-gradient(120deg, theme('colors.brand.cyan'), theme('colors.brand.glow'));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .placeholder-tag {
+    @apply rounded-full border border-dashed border-brand-cyan/50 px-3 py-1 text-xs font-medium text-brand-cyan/80;
+  }
+  .placeholder-note {
+    @apply mt-6 text-xs italic text-surgical/45;
+  }
+
+  /* ----- Reveal on scroll ----- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ===========================================================================
+   NAV
+   =========================================================================== */
+.nav {
+  @apply fixed inset-x-0 top-0 z-50;
+  transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+.nav.is-scrolled {
+  background: rgba(8, 21, 35, 0.78);
+  backdrop-filter: blur(14px);
+  border-bottom-color: rgba(78, 161, 211, 0.18);
+}
+.nav__inner {
+  @apply mx-auto flex max-w-content items-center justify-between gap-4 px-5 sm:px-8;
+  height: var(--nav-h);
+}
+.nav__brand {
+  @apply flex items-center gap-3;
+}
+.nav__logo-mark {
+  @apply grid h-10 w-10 place-items-center rounded-lg font-display text-sm font-bold tracking-tight text-white;
+  background: linear-gradient(135deg, theme('colors.brand.cyan'), theme('colors.brand.deep'));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+.nav__logo-text {
+  @apply leading-tight;
+}
+.nav__logo-name {
+  @apply block font-display text-sm font-semibold text-surgical;
+}
+.nav__logo-sub {
+  @apply block text-[11px] uppercase tracking-[0.18em] text-surgical/45;
+}
+.nav__links {
+  @apply hidden items-center gap-7 lg:flex;
+}
+.nav__links a {
+  @apply text-sm text-surgical/70 transition-colors hover:text-surgical;
+  position: relative;
+}
+.nav__links a::after {
+  content: '';
+  @apply absolute -bottom-1.5 left-0 h-px w-0 bg-brand-cyan transition-all duration-300;
+}
+.nav__links a:hover::after {
+  @apply w-full;
+}
+.nav__cta {
+  @apply hidden lg:inline-flex;
+}
+.nav__toggle {
+  @apply flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden;
+}
+.nav__toggle span {
+  @apply block h-0.5 w-6 rounded-full bg-surgical transition-all duration-300;
+}
+.nav__toggle[aria-expanded='true'] span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.nav__toggle[aria-expanded='true'] span:nth-child(2) {
+  opacity: 0;
+}
+.nav__toggle[aria-expanded='true'] span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+.nav__mobile {
+  @apply flex flex-col gap-1 border-t border-white/10 bg-night-900/95 px-5 py-5 lg:hidden;
+  backdrop-filter: blur(14px);
+}
+.nav__mobile a:not(.btn) {
+  @apply rounded-lg px-3 py-2.5 text-surgical/80 transition-colors hover:bg-white/5 hover:text-surgical;
+}
+.nav__mobile .btn {
+  @apply mt-2;
+}
+
+/* ===========================================================================
+   HERO
+   =========================================================================== */
+.hero {
+  @apply relative flex min-h-[100svh] items-center overflow-hidden;
+  padding-top: var(--nav-h);
+}
+.hero__canvas,
+.hero__poster {
+  @apply absolute inset-0;
+}
+.hero__canvas {
+  z-index: 1;
+}
+.hero__canvas canvas {
+  @apply h-full w-full;
+  display: block;
+}
+/* Poster estático: gradiente radial que evoca la mandíbula iluminada,
+   visible mientras Three.js carga (o si no carga nunca). */
+.hero__poster {
+  z-index: 0;
+  background:
+    radial-gradient(60% 70% at 72% 45%, rgba(78, 161, 211, 0.22), transparent 70%),
+    radial-gradient(40% 50% at 50% 100%, rgba(3, 83, 144, 0.3), transparent 70%),
+    theme('colors.night.900');
+}
+.hero__grid {
+  @apply pointer-events-none absolute inset-0;
+  z-index: 2;
+  background-image: theme('backgroundImage.blueprint');
+  background-size: 48px 48px;
+  mask-image: radial-gradient(70% 70% at 50% 40%, #000 30%, transparent 100%);
+  opacity: 0.5;
+}
+.hero__content {
+  @apply container relative;
+  z-index: 3;
+}
+.hero__title {
+  @apply mt-5 text-4xl font-bold sm:text-6xl lg:text-7xl;
+  max-width: 16ch;
+}
+.hero__subtitle {
+  @apply mt-6 max-w-xl text-base leading-relaxed text-surgical/75 sm:text-lg;
+}
+.hero__actions {
+  @apply mt-9 flex flex-wrap items-center gap-4;
+}
+.hero__hint {
+  @apply mt-12 inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-surgical/40;
+}
+.hero__hint .icon {
+  @apply h-4 w-4 animate-bounce;
+}
+
+/* ===========================================================================
+   CIFRAS
+   =========================================================================== */
+.stats {
+  @apply border-y border-white/10 bg-night-900/60 py-12;
+}
+.stats__inner {
+  @apply container grid grid-cols-2 gap-8 lg:grid-cols-4;
+}
+.stat {
+  @apply text-center;
+}
+.stat__num {
+  @apply block font-display text-4xl font-bold text-surgical sm:text-5xl;
+}
+.stat__label {
+  @apply mt-2 block text-sm text-surgical/60;
+}
+.stats__disclaimer {
+  @apply container mt-8 text-center text-xs italic text-surgical/40;
+}
+
+/* ===========================================================================
+   SCROLLYTELLING
+   =========================================================================== */
+.scrolly {
+  @apply relative;
+}
+.scrolly__sticky {
+  @apply sticky top-0 h-[100svh] w-full overflow-hidden;
+}
+.scrolly__canvas {
+  @apply absolute inset-0;
+}
+.scrolly__canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.scrolly__fallback {
+  @apply absolute inset-0 grid place-items-center;
+}
+.scrolly__hud {
+  @apply pointer-events-none absolute left-5 top-24 flex items-center gap-3 rounded-full border border-brand-cyan/30 bg-night-900/70 px-4 py-2 font-display text-sm sm:left-8;
+  backdrop-filter: blur(8px);
+}
+.hud__time {
+  @apply font-bold tabular-nums text-brand-cyan;
+}
+.hud__divider {
+  @apply h-4 w-px bg-white/20;
+}
+.hud__stage {
+  @apply text-surgical/80;
+}
+.scrolly__progress {
+  @apply pointer-events-none absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center gap-4 text-[11px] uppercase tracking-wider text-surgical/45 sm:gap-6;
+}
+.scrolly__progress li {
+  @apply flex items-center gap-2 transition-colors;
+}
+.scrolly__progress li span {
+  @apply block h-2 w-2 rounded-full bg-white/25 transition-all duration-300;
+}
+.scrolly__progress li.is-active {
+  @apply text-brand-cyan;
+}
+.scrolly__progress li.is-active span {
+  @apply bg-brand-cyan;
+  box-shadow: 0 0 12px theme('colors.brand.cyan');
+  transform: scale(1.5);
+}
+
+.scrolly__steps {
+  @apply relative z-10;
+}
+.scrolly__intro {
+  @apply container flex min-h-[60svh] flex-col justify-center;
+}
+.step {
+  @apply container flex min-h-[90svh] max-w-content flex-col justify-center;
+}
+.step__card {
+  @apply max-w-md rounded-2xl border border-white/10 bg-night-900/80 p-6 backdrop-blur-md transition-all duration-500 sm:p-8;
+  opacity: 0.6;
+  transform: translateY(12px);
+}
+/* La etapa activa (sincronizada con la animación 3D) se resalta. */
+.step.is-current .step__card {
+  opacity: 1;
+  transform: none;
+  border-color: rgba(78, 161, 211, 0.4);
+  box-shadow: 0 20px 50px -24px rgba(78, 161, 211, 0.6);
+}
+.step__time {
+  @apply inline-block rounded-full bg-brand-cyan/15 px-3 py-1 font-display text-xs font-semibold uppercase tracking-wider text-brand-cyan;
+}
+.step__title {
+  @apply mt-4 text-2xl font-bold sm:text-3xl;
+}
+.step__card p {
+  @apply mt-3 leading-relaxed text-surgical/75;
+}
+
+.scrolly__close {
+  @apply container flex min-h-[80svh] flex-col items-center justify-center text-center;
+}
+.close-stats {
+  @apply mb-9 flex flex-wrap items-center justify-center gap-8 sm:gap-14;
+}
+.close-stat {
+  @apply flex flex-col;
+}
+.close-stat span,
+.close-stat > span {
+  @apply font-display text-4xl font-bold text-brand-cyan sm:text-5xl;
+}
+.close-stat small {
+  @apply mt-1 text-sm text-surgical/60;
+}
+.close-note {
+  @apply mt-6 text-xs italic text-surgical/40;
+}
+
+/* ===========================================================================
+   SECCIONES GENÉRICAS
+   =========================================================================== */
+.section {
+  @apply py-20 sm:py-28;
+}
+.section--dark {
+  background: theme('colors.night.900');
+}
+.section--accent {
+  background:
+    radial-gradient(80% 120% at 80% 0%, rgba(3, 83, 144, 0.25), transparent 60%),
+    theme('colors.night.900');
+}
+
+/* ----- Sin dolor: features ----- */
+.feature-grid {
+  @apply mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4;
+}
+.feature-card {
+  @apply rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all duration-300;
+}
+.feature-card:hover {
+  @apply border-brand-cyan/40 bg-white/[0.04];
+  transform: translateY(-4px);
+}
+.feature-card__icon {
+  @apply mb-4 grid h-12 w-12 place-items-center rounded-xl text-brand-cyan;
+  background: rgba(78, 161, 211, 0.1);
+}
+.feature-card__icon svg {
+  @apply h-6 w-6;
+}
+.feature-card h3 {
+  @apply text-lg font-semibold;
+}
+.feature-card p {
+  @apply mt-2 text-sm leading-relaxed text-surgical/65;
+}
+
+/* ----- Tecnología ----- */
+.tech-grid {
+  @apply mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3;
+}
+.tech-card {
+  @apply relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all duration-300;
+}
+.tech-card::before {
+  content: '';
+  @apply pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300;
+  background: radial-gradient(60% 80% at 50% 0%, rgba(78, 161, 211, 0.18), transparent 70%);
+}
+.tech-card:hover,
+.tech-card:focus-within {
+  @apply border-brand-cyan/50;
+  transform: translateY(-4px);
+}
+.tech-card:hover::before,
+.tech-card:focus-within::before {
+  @apply opacity-100;
+}
+.tech-card__tag {
+  @apply inline-block rounded-full border border-brand-cyan/30 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-brand-cyan;
+}
+.tech-card h3 {
+  @apply mt-3 text-xl font-semibold;
+}
+.tech-card p {
+  @apply mt-2 text-sm leading-relaxed text-surgical/65;
+}
+
+/* ----- Especialidades ----- */
+.spec-groups {
+  @apply mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4;
+}
+.spec-group {
+  @apply rounded-2xl border border-white/10 bg-white/[0.02] p-6;
+}
+.spec-group__title {
+  @apply text-sm font-semibold uppercase tracking-wider text-brand-cyan;
+}
+.spec-list {
+  @apply mt-4 space-y-2.5;
+}
+.spec-list li {
+  @apply flex items-center gap-2.5 text-sm text-surgical/80;
+}
+.spec-list li::before {
+  content: '';
+  @apply h-1.5 w-1.5 shrink-0 rounded-full bg-brand-cyan/70;
+}
+
+/* ----- Equipo ----- */
+.founder {
+  @apply mt-12 grid gap-8 rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-9 lg:grid-cols-[280px_1fr] lg:items-center;
+}
+.founder__photo {
+  @apply grid aspect-[4/5] place-items-center rounded-2xl;
+  background:
+    linear-gradient(160deg, rgba(78, 161, 211, 0.12), rgba(3, 83, 144, 0.05)),
+    theme('colors.night.700');
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.founder__body h3 {
+  @apply text-2xl font-bold sm:text-3xl;
+}
+.founder__role {
+  @apply mt-2 text-sm font-medium uppercase tracking-wider text-brand-cyan;
+}
+.founder__body p:last-child {
+  @apply mt-4 leading-relaxed text-surgical/70;
+}
+.team-grid {
+  @apply mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5;
+}
+.team-card {
+  @apply rounded-2xl border border-white/10 bg-white/[0.02] p-4 text-center transition-all duration-300;
+}
+.team-card:hover {
+  @apply border-brand-cyan/40;
+}
+.team-card__avatar {
+  @apply mx-auto grid h-20 w-20 place-items-center rounded-full;
+  background: linear-gradient(160deg, rgba(78, 161, 211, 0.18), rgba(3, 83, 144, 0.08));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.team-card__avatar svg {
+  @apply h-9 w-9 text-brand-cyan/70;
+}
+.team-card__name {
+  @apply mt-3 text-sm font-semibold;
+}
+.team-card__tag {
+  @apply mt-1 text-[11px] text-surgical/45;
+}
+
+/* ----- Confianza ----- */
+.trust-grid {
+  @apply grid gap-10 lg:grid-cols-2 lg:items-center;
+}
+.trust-points {
+  @apply space-y-4;
+}
+.trust-points li {
+  @apply flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5;
+}
+.trust-check {
+  @apply grid h-8 w-8 shrink-0 place-items-center rounded-full text-sm font-bold text-night-900;
+  background: theme('colors.success');
+}
+.trust-points strong {
+  @apply block font-semibold;
+}
+.trust-points small {
+  @apply mt-0.5 block text-sm text-surgical/55;
+}
+
+/* ----- Testimonios ----- */
+.testi-grid {
+  @apply mt-12 grid gap-5 sm:grid-cols-3;
+}
+.testi-card {
+  @apply rounded-2xl border border-dashed border-white/15 bg-white/[0.02] p-6;
+}
+.testi-card__stars {
+  @apply text-lg tracking-widest text-brand-cyan;
+}
+.testi-card blockquote {
+  @apply mt-4 italic leading-relaxed text-surgical/60;
+}
+.testi-card figcaption {
+  @apply mt-4 text-sm font-medium text-surgical/45;
+}
+
+/* ----- Ubicación ----- */
+.location-grid {
+  @apply grid gap-10 lg:grid-cols-2 lg:items-center;
+}
+.location-dl {
+  @apply mt-8 space-y-4;
+}
+.location-dl > div {
+  @apply border-l-2 border-brand-cyan/40 pl-4;
+}
+.location-dl dt {
+  @apply text-xs font-semibold uppercase tracking-wider text-surgical/45;
+}
+.location-dl dd {
+  @apply mt-1 text-surgical/85;
+}
+.location-dl a {
+  @apply text-brand-cyan hover:underline;
+}
+.location-map {
+  @apply overflow-hidden rounded-3xl border border-white/10;
+  aspect-ratio: 4 / 3;
+}
+.location-map iframe {
+  @apply h-full w-full;
+  border: 0;
+  filter: grayscale(0.3) invert(0.92) hue-rotate(180deg) contrast(0.9);
+}
+
+/* ----- Contacto ----- */
+.contact-grid {
+  @apply grid gap-10 lg:grid-cols-2;
+}
+.contact-form {
+  @apply rounded-3xl border border-white/10 bg-white/[0.02] p-6 sm:p-8;
+}
+.contact-form__label {
+  @apply mb-4 text-sm font-semibold uppercase tracking-wider text-brand-cyan;
+}
+.field {
+  @apply mb-4;
+}
+.field label {
+  @apply mb-1.5 block text-sm text-surgical/70;
+}
+.field input,
+.field textarea {
+  @apply w-full rounded-xl border border-white/10 bg-night-900/60 px-4 py-3 text-surgical placeholder-surgical/30 transition-colors;
+}
+.field input:focus,
+.field textarea:focus {
+  @apply border-brand-cyan/60 outline-none;
+}
+.contact-form__status {
+  @apply mt-4 text-sm text-success;
+  min-height: 1.25rem;
+}
+
+/* ===========================================================================
+   FOOTER + WHATSAPP
+   =========================================================================== */
+.footer {
+  @apply border-t border-white/10 bg-night-900 py-12;
+}
+.footer__inner {
+  @apply grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-center;
+}
+.footer__name {
+  @apply mt-3 font-display font-semibold;
+}
+.footer__addr {
+  @apply mt-1 text-sm text-surgical/55;
+}
+.footer__demo {
+  @apply rounded-2xl border border-white/10 bg-white/[0.02] p-5 text-sm leading-relaxed text-surgical/50;
+}
+
+.wa-float {
+  @apply fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full text-white shadow-lg transition-transform;
+  background: #25d366;
+  box-shadow: 0 10px 30px -8px rgba(37, 211, 102, 0.6);
+}
+.wa-float:hover {
+  transform: scale(1.08);
+}
+.wa-float svg {
+  @apply h-7 w-7;
+}
+.wa-float::after {
+  content: '';
+  @apply absolute inset-0 rounded-full;
+  background: #25d366;
+  z-index: -1;
+  animation: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ===========================================================================
+   FALLBACK SVG (scrollytelling sin WebGL)
+   =========================================================================== */
+.svg-stage {
+  @apply absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-500;
+}
+.svg-stage.is-active {
+  @apply opacity-100;
+}
+.svg-stage svg {
+  @apply w-[min(80vw,520px)];
+}
